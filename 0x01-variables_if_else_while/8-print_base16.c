@@ -1,22 +1,32 @@
+#include <stdlib.h>
 #include <stdio.h>
+#include <time.h>
 
 /**
- * main - Prints all the numbers of base 16 in lowercase.
+ * main - Prints base 16
+ * @void: Empty parameter list for main.
  *
- * Return: Always 0.
- */
+ * Description: Prints all hexadecimals
+ *
+ * Return: 0 for success
+*/
 int main(void)
 {
- int num;
- char letter;
+	int num = 48;
 
- for (num = 0; num < 10; num++)
-  putchar((num % 10) + '0');
+	while (num <= 57)
+	{
+		putchar(num);
+		num++;
+	}
 
- for (letter = 'a'; letter <= 'f'; letter++)
-  putchar(letter);
+	num = 97;
 
- putchar('\n');
-
- return (0);
+	while (num <= 102)
+	{
+		putchar(num);
+		num++;
+	}
+	putchar('\n');
+	return (0);
 }
