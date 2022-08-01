@@ -1,20 +1,20 @@
 #include "function_pointers.h"
 
 /**
- * array_iterator - prototype function
- * @array: Variable char pointer
- * @size: Function pointer char pointer
- * @action: Function pointer char pointer
- * Return: Void
+ * array_iterator - xecutes a function given as a parameter on each
+ * element of an array.
+ * @array: array of intege
+ * @size: size of array
+ * @action: function pointer
  */
 
 void array_iterator(int *array, size_t size, void (*action)(int))
 {
-	unsigned int a;
+size_t i;
 
-	if (array == NULL || size <= 0 || action == NULL)
-		return;
-
-	for (a = 0; a < size; a++)
-		action(array[a]);
+if (array != NULL && action != NULL)
+{
+	for (i = 0; i < size; i++)
+		action(array[i]);
+}
 }

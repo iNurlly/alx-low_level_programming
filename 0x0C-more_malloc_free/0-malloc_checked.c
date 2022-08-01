@@ -1,20 +1,16 @@
-#include "holberton.h"
-#include <stdio.h>
 #include <stdlib.h>
 
 /**
- * *malloc_checked - writes the character c to stdout
- * @b: The character to print
- * Return: On success 1.
+ * *malloc_checked - allocates memory using malloc and exit if failed
+ * @b: int
+ * Return: pointer to the array initialized or NULL
  */
 
 void *malloc_checked(unsigned int b)
 {
-	unsigned int *a;
+int *m = malloc(b);
+if (m == 0)
+	exit(98);
 
-	a = malloc(b);
-
-	if (a == NULL)
-		exit(98);
-	return (a);
+return (m);
 }

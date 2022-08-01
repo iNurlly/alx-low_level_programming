@@ -1,61 +1,76 @@
 #include "dog.h"
 #include <stdio.h>
 #include <stdlib.h>
-
 /**
- * *_strcpy - prototype function
- * @dest: Variable char pointer
- * @src: Variable char pointer
- * Return: dest pointer
- */
-
-char *_strcpy(char *dest, char *src)
+ * new_dog - create new data structure for dog
+ * @name: name of dog
+ * @age: age of dog
+ * @owner: dog owner
+ *
+ * Return: Pointer to new dog
+ **/
+dog_t *new_dog(char *name, float age, char *owner)
 {
-	int a;
+	dog_t *new_dog;
+	int len_name, len_owner;
 
-	for (a = 0; src[a] != '\0' ; a++)
+	new_dog = malloc(sizeof(dog_t));
+	if (new_dog == NULL)
+		return (NULL);
+
+	len_name = _strlen(name);
+	new_dog->name = malloc(sizeof(char) * len_name + 1);
+	if (new_dog->name == NULL)
 	{
-		dest[a] = src[a];
+		free(new_dog);
+		return (NULL);
+	}
+	new_dog->name = _strcpy(new_dog->name, name);
+	len_owner = _strlen(owner);
+	new_dog->owner = malloc(sizeof(char) * len_owner + 1);
+	if (new_dog->owner == NULL)
+	{
+		free(new_dog->name);
+		free(new_dog);
+		return (NULL);
 	}
 
-	dest[a] = '\0';
+	new_dog->owner = _strcpy(new_dog->owner, owner);
+	new_dog->age = age;
 
-	return (dest);
+	return (new_dog);
 }
 
 /**
-* *new_dog - Prototype
-* @name: Variable char
-* @age: Variable float
-* @owner: Variable char
-* Return: new dog
-*/
-
-dog_t *new_dog(char *name, float age, char *owner)
+ * _strlen - determinates the lenght of a string
+ * @s: pointer to string
+ * Return: the length
+ */
+int _strlen(char *s)
 {
-	dog_t *hotdog = NULL;
-	int a, b;
+	int a;
 
-	if (name == NULL || owner == NULL)
-		return (NULL);
-	hotdog = malloc(sizeof(dog_t));
-	if (hotdog == NULL)
-		return (NULL);
-	for (a = 0; name[a] != '\0'; a++)
-		;
-	for (b = 0; owner[b] != '\0'; b++)
-		;
-	hotdog->name = malloc(sizeof(char) * (a + 1));
-	hotdog->owner = malloc(sizeof(char) * (b + 1));
-	if (hotdog->name == NULL || hotdog->owner == NULL)
+	for (a = 0; s[a] != '\0'; a++)
+	;
+	return (a);
+}
+
+/**
+ * _strcpy - copies a pointed string
+ * @dest: pointer to the destine string
+ * @src: pointer to the source string
+ * Return: the adress of the destiny string
+ */
+char *_strcpy(char *dest, char *src)
+{
+	int a = 0;
+
+	while (src[a] != '\0')
 	{
-		free(hotdog->name);
-		free(hotdog->owner);
-		free(hotdog);
-		return (NULL);
+		dest[a] = src[a];
+		a++;
 	}
-	_strcpy(hotdog->name, name);
-	_strcpy(hotdog->owner, owner);
-	hotdog->age = age;
-	return (hotdog);
+
+	dest[a] = '\0';
+	return (dest);
 }

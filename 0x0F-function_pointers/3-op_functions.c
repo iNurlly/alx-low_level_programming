@@ -1,68 +1,56 @@
 #include "3-calc.h"
 
 /**
- * op_add - prototype function
- * @a: Variable char pointer
- * @b: Variable char pointer
- * Return: Add int
+ * op_add - addition operator
+ * @a: first int
+ * @b: second int
+ * Return: sum of 2 numbers
  */
-
 int op_add(int a, int b)
 {
 	return (a + b);
 }
 
 /**
- * op_sub - prototype function
- * @a: Variable char pointer
- * @b: Variable char pointer
- * Return: Sub int
+ * op_sub - subtraction operator
+ * @a: first in
+ * @b: second int
+ * Return: difference of 2 numbers
  */
-
 int op_sub(int a, int b)
 {
 	return (a - b);
 }
 
 /**
- * op_mul - prototype function
- * @a: Variable char pointer
- * @b: Variable char pointer
- * Return: Mul int
+ * op_mul - product of 2 numbers
+ * @a: first int
+ * @b: second int
+ * Return: product of the numbers
  */
-
 int op_mul(int a, int b)
 {
 	return (a * b);
 }
 
 /**
- * op_div - prototype function
- * @a: Variable char pointer
- * @b: Variable char pointer
- * Return: Div int
+ * op_div - division of 2 numbers
+ * @a: first int
+ * @b: second int
+ * Return: result of the division of the numbers
  */
-
 int op_div(int a, int b)
 {
-	if (b == 0)
-	{
-		printf("Error\n");
-		exit(100);
-	}
 	return (a / b);
 }
-/**
- * op_mod - prototype function
- * @a: Variable char pointer
- * @b: Variable char pointer
- * Return: Mod int
- */
 
+/**
+ * op_mod - get remainder of the division of 2 numbers
+ * @a: first int
+ * @b: second int
+ * Return: remainder of division of the numbers
+ */
 int op_mod(int a, int b)
 {
-	if (b != 0)
-		return (a % b);
-	printf("Error\n");
-	exit(100);
+	return (a % b);
 }

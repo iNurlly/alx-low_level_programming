@@ -1,6 +1,3 @@
-#ifndef NAME_H
-#define NAME_H
-
+#ifndef SIZE
 #define SIZE 1024
-
-#endif /* NAME_H */
+#endif
